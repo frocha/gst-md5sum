@@ -193,6 +193,7 @@ gst_md5sum_transform_ip (GstBaseTransform * base, GstBuffer * outbuf)
   g_checksum_update(md5sum, outbuf, GST_BUFFER_SIZE(outbuf));
   const gchar* digest = g_checksum_get_string(md5sum);
   g_message("Buffer's digest: %s", digest);
+  g_checksum_free(md5sum);
 
   return GST_FLOW_OK;
 }
